@@ -1,3 +1,166 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <h2 class="page-header" align="center">Endless Aisle Dashboard</h2>
+  </div>
+  <div class="row justify-content-center">
+    <h3 align="center">{{ dateNow | amDateFormat:'LL' }}</h3>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <h4 style="text-align: center;">Female Buyers</h4>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <h4 style="text-align: center;">Male Buyers</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <div class="row">
+            <div class="col">
+              <h4 style="text-align: center;">Age 35-45</h4>
+            </div>
+            <div class="col">
+              <h4 style="text-align: center;">Age 45-55</h4>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <div class="card">
+                <div class="card-body">
+                  <p>Total: 0</p>
+                  <p>Offer A: 0</p>
+                  <p>Offer B: 0</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <div class="card-body">
+                  <p>Total: 0</p>
+                  <p>Offer A: 0</p>
+                  <p>Offer B: 0</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <div class="row">
+            <div class="col">
+              <h4 style="text-align: center;">Age 35-45</h4>
+            </div>
+            <div class="col">
+              <h4 style="text-align: center;">Age 45-55</h4>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <div class="card">
+                <div class="card-body">
+                  <p>Total: 0</p>
+                  <p>Offer A: 0</p>
+                  <p>Offer B: 0</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <div class="card-body">
+                  <p>Total: 0</p>
+                  <p>Offer A: 0</p>
+                  <p>Offer B: 0</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <h4 style="text-align: center;">Recent Buyers</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <div class="card-header">
+              <div class="row">
+                <div class="col">
+                  <p style="font-weight: bold;">Name</p>
+                </div>
+                <div class="col">
+                  <p style="font-weight: bold;">Time</p>
+                </div>
+                <div class="col">
+                  <p style="font-weight: bold;">Gender</p>
+                </div>
+                <div class="col">
+                  <p style="font-weight: bold;">Age</p>
+                </div>
+                <div class="col">
+                  <p style="font-weight: bold;">Offer Selected</p>
+                </div>
+                <div class="col">
+                  <p style="font-weight: bold;">Emotional State</p>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <p>Brandon</p>
+                </div>
+                <div class="col">
+                  <p>11:22AM</p>
+                </div>
+                <div class="col">
+                  <p>M</p>
+                </div>
+                <div class="col">
+                  <p>35-45</p>
+                </div>
+                <div class="col">
+                  <p>Apple Tablet</p>
+                </div>
+                <div class="col">
+                  <p>Happy (75%)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr>
 <ul>
   <li *ngFor="let customer of customers | async">
     {{ customer.name }}

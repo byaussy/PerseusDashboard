@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import {AngularFirestore} from '@angular/fire/firestore';
+import {MomentModule} from 'angular2-moment';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import {AngularFirestore} from '@angular/fire/firestore';
   ],
   imports: [
     BrowserModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
+    MomentModule
   ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent]
