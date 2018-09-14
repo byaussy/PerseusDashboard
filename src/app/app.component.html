@@ -29,10 +29,10 @@
         <div class="card-header">
           <div class="row">
             <div class="col">
-              <h4 style="text-align: center;">Age 35-45</h4>
+              <h4 style="text-align: center;">Age 25-45</h4>
             </div>
             <div class="col">
-              <h4 style="text-align: center;">Age 45-55</h4>
+              <h4 style="text-align: center;">Age 45-60</h4>
             </div>
           </div>
         </div>
@@ -41,18 +41,18 @@
             <div class="col">
               <div class="card">
                 <div class="card-body">
-                  <p>Total: 0</p>
-                  <p>Offer A: 0</p>
-                  <p>Offer B: 0</p>
+                  <p>Total: {{ youngFemaleA + youngFemaleB }}</p>
+                  <p>Offer A: {{ youngFemaleA }}</p>
+                  <p>Offer B: {{ youngFemaleB }}</p>
                 </div>
               </div>
             </div>
             <div class="col">
               <div class="card">
                 <div class="card-body">
-                  <p>Total: 0</p>
-                  <p>Offer A: 0</p>
-                  <p>Offer B: 0</p>
+                  <p>Total: {{ oldFemaleA + oldFemaleB}}</p>
+                  <p>Offer A: {{ oldFemaleA }}</p>
+                  <p>Offer B: {{ oldFemaleB }}</p>
                 </div>
               </div>
             </div>
@@ -65,10 +65,10 @@
         <div class="card-header">
           <div class="row">
             <div class="col">
-              <h4 style="text-align: center;">Age 35-45</h4>
+              <h4 style="text-align: center;">Age 25-45</h4>
             </div>
             <div class="col">
-              <h4 style="text-align: center;">Age 45-55</h4>
+              <h4 style="text-align: center;">Age 45-60</h4>
             </div>
           </div>
         </div>
@@ -77,18 +77,18 @@
             <div class="col">
               <div class="card">
                 <div class="card-body">
-                  <p>Total: 0</p>
-                  <p>Offer A: 0</p>
-                  <p>Offer B: 0</p>
+                  <p>Total: {{ oldFemaleA + oldFemaleB }}</p>
+                  <p>Offer A: {{ oldFemaleA }}</p>
+                  <p>Offer B: {{ oldFemaleB }}</p>
                 </div>
               </div>
             </div>
             <div class="col">
               <div class="card">
                 <div class="card-body">
-                  <p>Total: 0</p>
-                  <p>Offer A: 0</p>
-                  <p>Offer B: 0</p>
+                  <p>Total: {{ oldMaleA + oldMaleB }}</p>
+                  <p>Offer A: {{ oldMaleA }}</p>
+                  <p>Offer B: {{ oldMaleB }}</p>
                 </div>
               </div>
             </div>
@@ -100,69 +100,36 @@
   <br>
 
   <div class="row">
-    <div class="col">
+    <div class="col col-sm-12">
       <div class="card">
         <div class="card-header">
           <h4 style="text-align: center;">Recent Buyers</h4>
         </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <div class="card">
-            <div class="card-header">
-              <div class="row">
-                <div class="col">
-                  <p style="font-weight: bold;">Name</p>
-                </div>
-                <div class="col">
-                  <p style="font-weight: bold;">Time</p>
-                </div>
-                <div class="col">
-                  <p style="font-weight: bold;">Gender</p>
-                </div>
-                <div class="col">
-                  <p style="font-weight: bold;">Age</p>
-                </div>
-                <div class="col">
-                  <p style="font-weight: bold;">Offer Selected</p>
-                </div>
-                <div class="col">
-                  <p style="font-weight: bold;">Emotional State</p>
-                </div>
-              </div>
-            </div>
-            <div class="card-body">
-              <div class="row">
-                <div class="col">
-                  <p>Brandon</p>
-                </div>
-                <div class="col">
-                  <p>11:22AM</p>
-                </div>
-                <div class="col">
-                  <p>M</p>
-                </div>
-                <div class="col">
-                  <p>35-45</p>
-                </div>
-                <div class="col">
-                  <p>Apple Tablet</p>
-                </div>
-                <div class="col">
-                  <p>Happy (75%)</p>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="fixed_header table">
+          <table class="fixed_header">
+            <thead>
+            <tr>
+              <th style="font-weight: bold;">Name</th>
+              <th style="font-weight: bold;">Time</th>
+              <th style="font-weight: bold;">Gender</th>
+              <th style="font-weight: bold;">Age</th>
+              <th style="font-weight: bold;">Offer Selected</th>
+              <th style="font-weight: bold;">Emotional State</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let transaction of transactions">
+              <td>{{ transaction.customer.name }}</td>
+              <td>{{ transaction.datetime | amDateFormat: 'M/D/YYYY, h:mm:ss a' }}</td>
+              <td>{{ transaction.customer.gender }}</td>
+              <td>{{ transaction.customer.age }}</td>
+              <td>{{ transaction.offer.name }}</td>
+              <td>{{ transaction.customer.mood }}</td>
+            </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-<hr>
-<ul>
-  <li *ngFor="let customer of customers | async">
-    {{ customer.name }}
-  </li>
-</ul>
