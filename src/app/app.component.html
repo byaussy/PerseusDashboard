@@ -6,11 +6,56 @@
     <h3 align="center">{{ dateNow | amDateFormat:'LL' }}</h3>
   </div>
 
+  <!--<div class="row">-->
+    <!--<div class="col">-->
+      <!--<div class="card">-->
+        <!--<div class="card-header">-->
+          <!--<h4 style="text-align: center;">Female Buyers</h4>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div class="col">-->
+      <!--<div class="card">-->
+        <!--<div class="card-header">-->
+          <!--<h4 style="text-align: center;">Male Buyers</h4>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+
   <div class="row">
     <div class="col">
       <div class="card">
         <div class="card-header">
           <h4 style="text-align: center;">Female Buyers</h4>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <div class="card">
+                <div class="card-header">
+                  <h4 style="text-align: center;">Age 45-60</h4>
+                </div>
+                <div class="card-body">
+                  <p>Total: {{ oldFemaleA + oldFemaleB}}</p>
+                  <p>Offer A: {{ oldFemaleA }}</p>
+                  <p>Offer B: {{ oldFemaleB }}</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <div class="card-header">
+                  <h4 style="text-align: center;">Age 25-45</h4>
+                </div>
+                <div class="card-body">
+                  <p>Total: {{ youngFemaleA + youngFemaleB }}</p>
+                  <p>Offer A: {{ youngFemaleA }}</p>
+                  <p>Offer B: {{ youngFemaleB }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -19,76 +64,29 @@
         <div class="card-header">
           <h4 style="text-align: center;">Male Buyers</h4>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col">
-      <div class="card">
-        <div class="card-header">
-          <div class="row">
-            <div class="col">
-              <h4 style="text-align: center;">Age 25-45</h4>
-            </div>
-            <div class="col">
-              <h4 style="text-align: center;">Age 45-60</h4>
-            </div>
-          </div>
-        </div>
         <div class="card-body">
           <div class="row">
             <div class="col">
               <div class="card">
-                <div class="card-body">
-                  <p>Total: {{ youngFemaleA + youngFemaleB }}</p>
-                  <p>Offer A: {{ youngFemaleA }}</p>
-                  <p>Offer B: {{ youngFemaleB }}</p>
+                <div class="card-header">
+                  <h4 style="text-align: center;">Age 45-60</h4>
                 </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card">
                 <div class="card-body">
-                  <p>Total: {{ oldFemaleA + oldFemaleB}}</p>
-                  <p>Offer A: {{ oldFemaleA }}</p>
-                  <p>Offer B: {{ oldFemaleB }}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card">
-        <div class="card-header">
-          <div class="row">
-            <div class="col">
-              <h4 style="text-align: center;">Age 25-45</h4>
-            </div>
-            <div class="col">
-              <h4 style="text-align: center;">Age 45-60</h4>
-            </div>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="row">
-            <div class="col">
-              <div class="card">
-                <div class="card-body">
-                  <p>Total: {{ oldFemaleA + oldFemaleB }}</p>
-                  <p>Offer A: {{ oldFemaleA }}</p>
-                  <p>Offer B: {{ oldFemaleB }}</p>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card">
-                <div class="card-body">
-                  <p>Total: {{ oldMaleA + oldMaleB }}</p>
+                  <p>Total: {{ oldMaleA + oldMaleB}}</p>
                   <p>Offer A: {{ oldMaleA }}</p>
                   <p>Offer B: {{ oldMaleB }}</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <div class="card-header">
+                  <h4 style="text-align: center;">Age 25-45</h4>
+                </div>
+                <div class="card-body">
+                  <p>Total: {{ youngMaleA + youngMaleB }}</p>
+                  <p>Offer A: {{ youngMaleA }}</p>
+                  <p>Offer B: {{ youngMaleB }}</p>
                 </div>
               </div>
             </div>

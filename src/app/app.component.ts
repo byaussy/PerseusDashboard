@@ -29,6 +29,15 @@ export class AppComponent implements OnInit, OnDestroy {
   constructor(private api: FirestoreService) {
     this.transactions$ = api.getTransactions();
     this.transactions$.pipe(takeUntil(this.unsubscribe)).subscribe(trans => {
+      this.transactions = [];
+      this.youngFemaleA = 0;
+      this.youngFemaleB = 0;
+      this.oldFemaleA = 0;
+      this.oldFemaleB = 0;
+      this.youngMaleA = 0;
+      this.youngMaleB = 0;
+      this.oldMaleA = 0;
+      this.oldMaleB = 0;
       for (const t of trans) {
         // const milliseconds = t.timestamp.seconds * 1000;
         t.datetime = moment(t.timestamp).toDate();
@@ -46,6 +55,7 @@ export class AppComponent implements OnInit, OnDestroy {
             switch (t.customer.gender) {
               case 'female': {
                 if (t.offer.state === 'purchased' || t.offer.state === 'return') {
+                  this.transactions.push(t);
                   switch (t.offer.name) {
                     case 'Smart Tablet': {
                       this.youngFemaleA++;
@@ -61,6 +71,7 @@ export class AppComponent implements OnInit, OnDestroy {
               }
               case 'male': {
                 if (t.offer.state === 'purchased' || t.offer.state === 'return') {
+                  this.transactions.push(t);
                   switch (t.offer.name) {
                     case 'Game Console': {
                       this.youngMaleA++;
@@ -81,6 +92,7 @@ export class AppComponent implements OnInit, OnDestroy {
             switch (t.customer.gender) {
               case 'female': {
                 if (t.offer.state === 'purchased' || t.offer.state === 'return') {
+                  this.transactions.push(t);
                   switch (t.offer.name) {
                     case 'Framed Blue Textile': {
                       this.oldFemaleA++;
@@ -96,6 +108,7 @@ export class AppComponent implements OnInit, OnDestroy {
               }
               case 'male': {
                 if (t.offer.state === 'purchased' || t.offer.state === 'return') {
+                  this.transactions.push(t);
                   switch (t.offer.name) {
                     case 'Coffee Bar': {
                       this.oldMaleA++;
@@ -114,7 +127,7 @@ export class AppComponent implements OnInit, OnDestroy {
           }
         }
       }
-      this.transactions = trans.sort((a: CustomerTransaction, b: CustomerTransaction) => {
+      this.transactions.sort((a: CustomerTransaction, b: CustomerTransaction) => {
         return b.timestamp - a.timestamp;
       });
     });
