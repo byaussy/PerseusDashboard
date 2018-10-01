@@ -1,57 +1,93 @@
 <div class="container">
-  <div class="row justify-content-center">
-    <h2 class="page-header" align="center">Endless Aisle Dashboard</h2>
-  </div>
-  <div class="row justify-content-center">
-    <h3 align="center">{{ dateNow | amDateFormat:'LL' }}</h3>
-  </div>
-
-  <!--<div class="row">-->
-    <!--<div class="col">-->
-      <!--<div class="card">-->
-        <!--<div class="card-header">-->
-          <!--<h4 style="text-align: center;">Female Buyers</h4>-->
-        <!--</div>-->
+  <div class="d-flex flex-row">
+    <div class="p-2">
+      <!--<div class="row" style="color: #000; font-size: 12px;">-->
+        <!--blank-->
       <!--</div>-->
-    <!--</div>-->
-    <!--<div class="col">-->
-      <!--<div class="card">-->
-        <!--<div class="card-header">-->
-          <!--<h4 style="text-align: center;">Male Buyers</h4>-->
-        <!--</div>-->
-      <!--</div>-->
-    <!--</div>-->
-  <!--</div>-->
+      <div class="row pt-3 pl-2" style="font-family: 'Lucida Grande',sans-serif; font-size: 32px; font-weight: lighter; color: #FFFFFF; vertical-align: bottom;">
+        Endless Aisle Dashboard
+      </div>
+      <div class="row pl-2" style="font-family: 'Lucida Grande',sans-serif; font-size: 18pt; font-weight: lighter; color: #FFFFFF; vertical-align: top;">
+        {{ dateNow | amDateFormat:'LL' }}
+      </div>
+    </div>
+    <div class="p-2" >
+      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+           viewBox="0 0 314 90" style="enable-background:new 0 0 314 90;" xml:space="preserve" width="210" height="60">
+        <style type="text/css">
+          .st3{fill:#00A3E0;}
+        </style>
+        <polygon class="st3" points="162.9,33.1 162.9,31.7 156.7,31.7 156.7,25.6 155,25.6 155,31.7 148.9,31.7 148.9,33.1 155,33.1
+          155,39.9 156.7,39.9 156.7,33.1 "/>
+        <polygon class="st3" points="233.3,49 233.3,47.5 227.2,47.5 227.2,41.4 225.5,41.4 225.5,47.5 219.3,47.5 219.3,49 225.5,49
+          225.5,55.7 227.2,55.7 227.2,49 "/>
+        <polygon class="st3" points="185.2,55.5 185.2,61.6 179,61.6 179,63 185.2,63 185.2,69.8 186.9,69.8 186.9,63 193,63 193,61.6
+          186.9,61.6 186.9,55.5 "/>
+        <polygon class="st3" points="106.3,53.8 106.3,52.4 100.2,52.4 100.2,46.3 98.5,46.3 98.5,52.4 92.3,52.4 92.3,53.8 98.5,53.8
+          98.5,60.6 100.2,60.6 100.2,53.8 "/>
+        <polygon class="st3" points="280.3,25.6 280.3,31.7 274.1,31.7 274.1,33.1 280.3,33.1 280.3,39.9 282,39.9 282,33.1 288.1,33.1
+          288.1,31.7 282,31.7 282,25.6 "/>
+        <polygon class="st3" points="42.5,19.5 42.5,34.9 27,34.9 27,38.5 42.5,38.5 42.5,55.5 46.8,55.5 46.8,38.5 62.2,38.5 62.2,34.9
+          46.8,34.9 46.8,19.5 "/>
+      </svg>
+    </div>
+  </div>
 
   <div class="row">
     <div class="col">
       <div class="card">
-        <div class="card-header">
-          <h4 style="text-align: center;">Female Buyers</h4>
+        <div class="card-header" style="text-align: center; font-family: 'Lucida Grande',sans-serif; font-size: 18pt; font-weight: bold;">
+          Female Buyers
         </div>
         <div class="card-body">
           <div class="row">
-            <div class="col">
+            <div class="col" style="padding-right: 0;">
               <div class="card">
-                <div class="card-header">
-                  <h4 style="text-align: center;">Age 45-60</h4>
+                <div class="card-header" style="text-align: center; font-family: 'Lucida Grande',sans-serif; font-size: 12pt; font-weight: bold;">
+                  Age 25-45
                 </div>
                 <div class="card-body">
-                  <p>Total: {{ oldFemaleA + oldFemaleB}}</p>
-                  <p>Offer A: {{ oldFemaleA }}</p>
-                  <p>Offer B: {{ oldFemaleB }}</p>
+                  <div class="row pb-2">
+                    <div class="col-md-8"><span class="float-right">Total:</span></div>
+                    <div class="col-md-3 text-center">{{ youngFemaleA + youngFemaleB }}</div>
+                  </div>
+                  <div class="row pb-2">
+                    <div class="col-md-8"><span class="float-right">Smart Tablet:</span></div>
+                    <div class="col-md-3 text-center" [class.highlight-green]="youngFemaleA >= mostest" [class.highlight-red]="youngFemaleA <= leastest">
+                      {{ youngFemaleA }}
+                    </div>
+                  </div>
+                  <div class="row pb-2">
+                    <div class="col-md-8"><span class="float-right">TV Series:</span></div>
+                    <div class="col-md-3 text-center" [class.highlight-green]="youngFemaleB >= mostest" [class.highlight-red]="youngFemaleB <= leastest">
+                      {{ youngFemaleB }}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="col">
+            <div class="col" style="padding-left: 0;">
               <div class="card">
-                <div class="card-header">
-                  <h4 style="text-align: center;">Age 25-45</h4>
+                <div class="card-header" style="text-align: center; font-family: 'Lucida Grande',sans-serif; font-size: 12pt; font-weight: bold;">
+                  Age 45-60
                 </div>
                 <div class="card-body">
-                  <p>Total: {{ youngFemaleA + youngFemaleB }}</p>
-                  <p>Offer A: {{ youngFemaleA }}</p>
-                  <p>Offer B: {{ youngFemaleB }}</p>
+                  <div class="row pb-2">
+                    <div class="col-md-8"><span class="float-right">Total:</span></div>
+                    <div class="col-md-3 text-center">{{ oldFemaleA + oldFemaleB }}</div>
+                  </div>
+                  <div class="row pb-2">
+                    <div class="col-md-8"><span class="float-right">Textile:</span></div>
+                    <div class="col-md-3 text-center" [class.highlight-green]="oldFemaleA >= mostest" [class.highlight-red]="oldFemaleA <= leastest">
+                      {{ oldFemaleA }}
+                    </div>
+                  </div>
+                  <div class="row pb-2">
+                    <div class="col-md-8"><span class="float-right">Cookbook:</span></div>
+                    <div class="col-md-3 text-center" [class.highlight-green]="oldFemaleB >= mostest" [class.highlight-red]="oldFemaleB <= leastest">
+                      {{ oldFemaleB }}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -61,32 +97,58 @@
     </div>
     <div class="col">
       <div class="card">
-        <div class="card-header">
-          <h4 style="text-align: center;">Male Buyers</h4>
+        <div class="card-header" style="text-align: center; font-family: 'Lucida Grande',sans-serif; font-size: 18pt; font-weight: bold;">
+          Male Buyers
         </div>
         <div class="card-body">
           <div class="row">
-            <div class="col">
+            <div class="col" style="padding-right: 0;">
               <div class="card">
-                <div class="card-header">
-                  <h4 style="text-align: center;">Age 45-60</h4>
+                <div class="card-header" style="text-align: center; font-family: 'Lucida Grande',sans-serif; font-size: 12pt; font-weight: bold;">
+                  Age 25-45
                 </div>
                 <div class="card-body">
-                  <p>Total: {{ oldMaleA + oldMaleB}}</p>
-                  <p>Offer A: {{ oldMaleA }}</p>
-                  <p>Offer B: {{ oldMaleB }}</p>
+                  <div class="row pb-2">
+                    <div class="col-md-8"><span class="float-right">Total:</span></div>
+                    <div class="col-md-3 text-center">{{ youngMaleA + youngMaleB }}</div>
+                  </div>
+                  <div class="row pb-2">
+                    <div class="col-md-8"><span class="float-right">Game Console:</span></div>
+                    <div class="col-md-3 text-center" [class.highlight-green]="youngMaleA >= mostest" [class.highlight-red]="youngMaleA <= leastest">
+                      {{ youngMaleA }}
+                    </div>
+                  </div>ex
+                  <div class="row pb-2">
+                    <div class="col-md-8"><span class="float-right">Smart Phone:</span></div>
+                    <div class="col-md-3 text-center" [class.highlight-green]="youngMaleB >= mostest" [class.highlight-red]="youngMaleB <= leastest">
+                      {{ youngMaleB }}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="col">
+            <div class="col" style="padding-left: 0;">
               <div class="card">
-                <div class="card-header">
-                  <h4 style="text-align: center;">Age 25-45</h4>
+                <div class="card-header" style="text-align: center; font-family: 'Lucida Grande',sans-serif; font-size: 12pt; font-weight: bold;">
+                  Age 45-60
                 </div>
                 <div class="card-body">
-                  <p>Total: {{ youngMaleA + youngMaleB }}</p>
-                  <p>Offer A: {{ youngMaleA }}</p>
-                  <p>Offer B: {{ youngMaleB }}</p>
+                  <div class="row pb-2">
+                    <div class="col-md-8"><span class="float-right">Total:</span></div>
+                    <div class="col-md-3 text-center">{{ oldMaleA + oldMaleB }}</div>
+                  </div>
+                  <div class="row pb-2">
+                    <div class="col-md-8"><span class="float-right">Coffee Bar:</span></div>
+                    <div class="col-md-3 text-center" [class.highlight-green]="oldMaleA >= mostest" [class.highlight-red]="oldMaleA <= leastest">
+                      {{ oldMaleA }}
+                    </div>
+                  </div>
+                  <div class="row pb-2">
+                    <div class="col-md-8"><span class="float-right">Gas Grill:</span></div>
+                    <div class="col-md-3 text-center" [class.highlight-green]="oldMaleB >= mostest" [class.highlight-red]="oldMaleB <= leastest">
+                      {{ oldMaleB }}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -97,36 +159,34 @@
   </div>
   <br>
 
-  <div class="row">
-    <div class="col col-sm-12">
-      <div class="card">
-        <div class="card-header">
-          <h4 style="text-align: center;">Recent Buyers</h4>
-        </div>
-        <div class="fixed_header table">
-          <table class="fixed_header">
-            <thead>
-            <tr>
-              <th style="font-weight: bold;">Name</th>
-              <th style="font-weight: bold;">Time</th>
-              <th style="font-weight: bold;">Gender</th>
-              <th style="font-weight: bold;">Age</th>
-              <th style="font-weight: bold;">Offer Selected</th>
-              <th style="font-weight: bold;">Emotional State</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr *ngFor="let transaction of transactions">
-              <td>{{ transaction.customer.name }}</td>
-              <td>{{ transaction.datetime | amDateFormat: 'M/D/YYYY, h:mm:ss a' }}</td>
-              <td>{{ transaction.customer.gender }}</td>
-              <td>{{ transaction.customer.age }}</td>
-              <td>{{ transaction.offer.name }}</td>
-              <td>{{ transaction.customer.mood }}</td>
-            </tr>
-            </tbody>
-          </table>
-        </div>
+  <div class="row pl-3 pr-3">
+    <div class="card">
+      <div class="card-header">
+        <h4 style="text-align: center;">Recent Buyers</h4>
+      </div>
+      <div class="fixed_header table">
+        <table class="fixed_header">
+          <thead>
+          <tr>
+            <th width="180px" style="font-weight: bold;">Name</th>
+            <th width="200px" style="font-weight: bold;">Time</th>
+            <th width="80px" style="font-weight: bold;">Gender</th>
+            <th width="50px" style="font-weight: bold;">Age</th>
+            <th width="200px" style="font-weight: bold;">Offer Selected</th>
+            <th width="150px" style="font-weight: bold;">Emotional State</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let transaction of transactions">
+            <td width="180px" style>{{ transaction.customer.name }}</td>
+            <td width="200px" style>{{ transaction.datetime | amDateFormat: 'M/D/YYYY, h:mm:ss a' }}</td>
+            <td width="80px" style>{{ transaction.customer.gender }}</td>
+            <td width="50px" style>{{ transaction.customer.age }}</td>
+            <td width="200px" style>{{ transaction.offer.name }}</td>
+            <td width="150px" style>{{ transaction.customer.mood }}</td>
+          </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>

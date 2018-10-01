@@ -4,6 +4,14 @@ body {background-color: cadetblue;}
   background-color: cadetblue;
 }
 
+.highlight-green {
+  background-color: lightgreen;
+}
+
+.highlight-red {
+  background-color: darkorange;
+}
+
 .fixed_header{
   /*width: 400px;*/
   table-layout: fixed;
@@ -14,7 +22,7 @@ body {background-color: cadetblue;}
   display:block;
   width: 100%;
   overflow: auto;
-  height: 250px;
+  height: 200px;
 }
 
 .fixed_header thead tr {
@@ -29,7 +37,10 @@ body {background-color: cadetblue;}
 .fixed_header th, .fixed_header td {
   padding: 5px;
   text-align: left;
-  width: 200px;
+}
+
+.card-body {
+  padding: 0;
 }
 
 tr:nth-child(even) {background-color: #f2f2f2;}

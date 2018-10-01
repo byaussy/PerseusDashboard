@@ -25,6 +25,8 @@ export class AppComponent implements OnInit, OnDestroy {
   youngMaleB = 0;
   oldMaleA = 0;
   oldMaleB = 0;
+  mostest = 0;
+  leastest = 10000;
 
   constructor(private api: FirestoreService) {
     this.transactions$ = api.getTransactions();
@@ -38,6 +40,7 @@ export class AppComponent implements OnInit, OnDestroy {
       this.youngMaleB = 0;
       this.oldMaleA = 0;
       this.oldMaleB = 0;
+      this.mostest = 0;
       for (const t of trans) {
         // const milliseconds = t.timestamp.seconds * 1000;
         t.datetime = moment(t.timestamp).toDate();
@@ -54,15 +57,17 @@ export class AppComponent implements OnInit, OnDestroy {
           case 'young': {
             switch (t.customer.gender) {
               case 'female': {
-                if (t.offer.state === 'purchased' || t.offer.state === 'return') {
+                if (t.offer.state === 'purchased') {
                   this.transactions.push(t);
                   switch (t.offer.name) {
                     case 'Smart Tablet': {
                       this.youngFemaleA++;
+                      if (this.youngFemaleA >= this.mostest) { this.mostest = this.youngFemaleA; }
                       break;
                     }
                     case 'TV Series': {
                       this.youngFemaleB++;
+                      if (this.youngFemaleB >= this.mostest) { this.mostest = this.youngFemaleB; }
                       break;
                     }
                   }
@@ -70,15 +75,17 @@ export class AppComponent implements OnInit, OnDestroy {
                 break;
               }
               case 'male': {
-                if (t.offer.state === 'purchased' || t.offer.state === 'return') {
+                if (t.offer.state === 'purchased') {
                   this.transactions.push(t);
                   switch (t.offer.name) {
                     case 'Game Console': {
                       this.youngMaleA++;
+                      if (this.youngMaleA >= this.mostest) { this.mostest = this.youngMaleA; }
                       break;
                     }
                     case 'Smart Phone 8': {
                       this.youngMaleB++;
+                      if (this.youngMaleB >= this.mostest) { this.mostest = this.youngMaleB; }
                       break;
                     }
                   }
@@ -91,15 +98,17 @@ export class AppComponent implements OnInit, OnDestroy {
           case 'old': {
             switch (t.customer.gender) {
               case 'female': {
-                if (t.offer.state === 'purchased' || t.offer.state === 'return') {
+                if (t.offer.state === 'purchased') {
                   this.transactions.push(t);
                   switch (t.offer.name) {
                     case 'Framed Blue Textile': {
                       this.oldFemaleA++;
+                      if (this.oldFemaleA >= this.mostest) { this.mostest = this.oldFemaleA; }
                       break;
                     }
                     case 'Cookbook': {
                       this.oldFemaleB++;
+                      if (this.oldFemaleB >= this.mostest) { this.mostest = this.oldFemaleB; }
                       break;
                     }
                   }
@@ -107,15 +116,17 @@ export class AppComponent implements OnInit, OnDestroy {
                 break;
               }
               case 'male': {
-                if (t.offer.state === 'purchased' || t.offer.state === 'return') {
+                if (t.offer.state === 'purchased') {
                   this.transactions.push(t);
                   switch (t.offer.name) {
                     case 'Coffee Bar': {
                       this.oldMaleA++;
+                      if (this.oldMaleA >= this.mostest) { this.mostest = this.oldMaleA; }
                       break;
                     }
                     case '6 Burner Gas Grill': {
                       this.oldMaleB++;
+                      if (this.oldMaleB >= this.mostest) { this.mostest = this.oldMaleB; }
                       break;
                     }
                   }
@@ -127,6 +138,14 @@ export class AppComponent implements OnInit, OnDestroy {
           }
         }
       }
+      this.leastest = this.youngFemaleA;
+      if (this.youngFemaleB < this.leastest) { this.leastest = this.youngFemaleB; }
+      if (this.youngMaleA < this.leastest) { this.leastest = this.youngMaleA; }
+      if (this.youngMaleB < this.leastest) { this.leastest = this.youngMaleB; }
+      if (this.oldFemaleA < this.leastest) { this.leastest = this.oldFemaleA; }
+      if (this.oldFemaleB < this.leastest) { this.leastest = this.oldFemaleB; }
+      if (this.oldMaleA < this.leastest) { this.leastest = this.oldMaleA; }
+      if (this.oldMaleB < this.leastest) { this.leastest = this.oldMaleB; }
       this.transactions.sort((a: CustomerTransaction, b: CustomerTransaction) => {
         return b.timestamp - a.timestamp;
       });
